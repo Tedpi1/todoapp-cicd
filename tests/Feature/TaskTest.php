@@ -29,14 +29,14 @@ class TaskTest extends TestCase
             'title' => 'Learn CI/CD',
             'content' => 'Build a Laravel CI/CD pipeline',
             'date' => '2026-08-10',
+            'priority' => 'high',
         ]);
 
         $response->assertRedirect('/');
 
         $this->assertDatabaseHas('notes', [
             'title' => 'Learn CI/CD',
-            'content' => 'Build a Laravel CI/CD pipeline',
-            'date' => '2026-08-10',
+            'priority' => 'high',
             'status' => 'pending',
         ]);
     }
@@ -79,6 +79,19 @@ class TaskTest extends TestCase
 
         $response->assertSessionHasErrors('date');
     }
+    public function test_task_priority_must_be_valid()
+    {
+        $this->loginUser();
+
+        $response = $this->post('/add-task', [
+            'title' => 'Test task',
+            'content' => 'Test content',
+            'date' => '2026-08-10',
+            'priority' => 'urgent',
+        ]);
+
+        $response->assertSessionHasErrors('priority');
+    }
 
     public function test_task_can_be_marked_as_completed()
     {
@@ -88,6 +101,7 @@ class TaskTest extends TestCase
             'title' => 'Complete CI/CD project',
             'content' => 'Finish the seven day project',
             'date' => '2026-08-10',
+            'priority' => 'high',
         ]);
 
         $task = Notes::first();
