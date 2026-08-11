@@ -62,6 +62,15 @@
                             <label for="date" class="form-label">Date</label>
                             <input type="date" name="date" class="form-control" id="date" required>
                         </div>
+                        <div class="mb-1">
+    <label for="priority" class="form-label">Priority</label>
+
+    <select name="priority" id="priority" class="form-control">
+        <option value="low">Low</option>
+        <option value="medium" selected>Medium</option>
+        <option value="high">High</option>
+    </select>
+</div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

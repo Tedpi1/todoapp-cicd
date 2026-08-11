@@ -18,12 +18,14 @@ class TaskManager extends Controller
         $request->validate([
             'title'=>'required',
             'content'=>'required',
-            'date'=>'required'
+            'date'=>'required',
+            'priority' => 'required|in:low,medium,high',
         ]);
         $notes= new Notes();
         $notes->title= $request->title;
         $notes->content= $request->content;
         $notes->date= $request->date;
+        $notes->priority= $request->priority;
         if($notes->save()){
             return redirect(route('home'))->with('success','Task added successfully');
         }
