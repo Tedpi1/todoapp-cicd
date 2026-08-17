@@ -20,4 +20,7 @@ jobs:
           echo "Application: Laravel Todo App"
           echo "Branch: main"
           echo "Commit: $GITHUB_SHA"
+          echo "Deployment message: $DEPLOY_MESSAGE"
           echo "Deployment successful!"
+        env:
+          DEPLOY_MESSAGE: ${{ secrets.DEPLOY_MESSAGE }}
