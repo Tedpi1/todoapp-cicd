@@ -9,7 +9,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     environment: production
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -24,7 +23,6 @@ jobs:
           echo "Deployment successful!"
         env:
           DEPLOY_MESSAGE: ${{ secrets.DEPLOY_MESSAGE }}
-
       - name: Verify deployment
         run: |
           echo "Verifying deployment..."
