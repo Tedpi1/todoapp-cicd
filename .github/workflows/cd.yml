@@ -27,4 +27,4 @@ jobs:
         run: |
           echo "Verifying deployment..."
           echo "Checking application..."
-          echo "Deployment verification successful!"
+          echo "Deployment verification successful"
