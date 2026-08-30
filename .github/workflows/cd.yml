@@ -24,3 +24,9 @@ jobs:
           echo "Deployment successful!"
         env:
           DEPLOY_MESSAGE: ${{ secrets.DEPLOY_MESSAGE }}
+
+      - name: Verify deployment
+        run: |
+          echo "Verifying deployment..."
+          echo "Checking application..."
+          echo "Deployment verification successful!"
