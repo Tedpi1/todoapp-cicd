@@ -28,11 +28,18 @@ jobs:
 
             cd /var/www/todoapp
 
+            echo "Checking production environment..."
+            test -f .env
+
             echo "Fetching latest code..."
             git fetch origin main
 
             echo "Updating application..."
             git reset --hard origin/main
+
+            echo "Fixing Laravel permissions..."
+            sudo chown -R ubuntu:www-data storage bootstrap/cache
+            sudo chmod -R ug+rwX storage bootstrap/cache
 
             echo "Installing production dependencies..."
             composer install --no-dev --prefer-dist --optimize-autoloader --no-interaction
@@ -61,7 +68,7 @@ jobs:
 
             cd /var/www/todoapp
 
-            echo "Verifying deployment....."
+            echo "Verifying deployment..."
 
             echo "Current commit:"
             git rev-parse HEAD
