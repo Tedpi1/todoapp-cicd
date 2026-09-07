@@ -61,7 +61,7 @@ jobs:
 
             cd /var/www/todoapp
 
-            echo "Verifying deployment..."
+            echo "Verifying deployment....."
 
             echo "Current commit:"
             git rev-parse HEAD
