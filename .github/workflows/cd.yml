@@ -55,7 +55,7 @@ jobs:
             php artisan route:cache
             php artisan view:cache
 
-            echo "Deployment completed successfully!"
+            echo "Deployment completed successfully!!!!"
 
       - name: Verify deployment
         uses: appleboy/ssh-action@v1.2.2
@@ -68,7 +68,7 @@ jobs:
 
             cd /var/www/todoapp
 
-            echo "Verifying deployment..."
+            echo "Verifying deployment......"
 
             echo "Current commit:"
             git rev-parse HEAD
